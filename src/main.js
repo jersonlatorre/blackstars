@@ -141,7 +141,9 @@ function draw() {
 function drawBackground() {
   backgroundColor = parseInt(lerp(0, 255, Global.t))
   background(backgroundColor)
+  document.body.style.background = color(backgroundColor)
   document.body.style.backgroundColor = color(backgroundColor)
+  document.querySelector('meta[name=theme-color]').setAttribute('content', color(backgroundColor));
 }
 
 function drawPlanet() {

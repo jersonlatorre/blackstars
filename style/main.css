@@ -6,7 +6,6 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: white;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -33,7 +32,7 @@ canvas {
   width: 100%;
   text-align: center;
   font-size: 2vh;
-  transition: 0.8s;
+  transition: 0.2s;
 }
 
 #message p {
@@ -44,6 +43,7 @@ canvas {
   cursor: pointer;
   font-size: 3vhz;
   pointer-events: none;
+  transition: all 0.1s;
 }
 
 .underlined {
@@ -52,11 +52,7 @@ canvas {
   pointer-events: all;
   font-size: 2.2vh;
   margin: 3px;
-  transition: all 0.5s;
-}
-
-.word:hover {
-  color: gray;
+  transition: all 0.1s;
 }
 
 #message.white {
@@ -65,4 +61,20 @@ canvas {
 
 #message.black {
   color: black;
+}
+
+.word:hover {
+    transition: all 0.1s;
+    background-color: rgba(127, 127, 127, 0.3);
+    padding: 7px 15px;
+    border-radius: 2vh;
+  }
+
+@media only screen and (hover: none) and (pointer: coarse) {
+  .word:hover {
+    transition: all 0.1s;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
 }
