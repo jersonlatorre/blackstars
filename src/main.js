@@ -58,7 +58,7 @@ function setup() {
     select('#despertar').class('word')
     select('#dormir').class('word underlined')
   })
-  
+
   select('#dormir').mouseClicked(() => {
     if (state != State.NIGHT) soundWoosh.play()
     state = State.DAY_TO_NIGHT
@@ -141,6 +141,7 @@ function draw() {
 function drawBackground() {
   backgroundColor = parseInt(lerp(0, 255, Global.t))
   background(backgroundColor)
+  document.body.style.backgroundColor = color(backgroundColor)
 }
 
 function drawPlanet() {
@@ -150,7 +151,6 @@ function drawPlanet() {
     distanceToCloud = lerp(0, 200, easeInBack(2 * Global.t))
     alpha = lerp(1, 0, 2 * Global.t)
     color = 'rgba(240, 240, 240,' + alpha + ')'
-    
   } else {
     distanceToCloud = lerp(200, 0, easeOutBack(2 * (Global.t - 0.5)))
     alpha = lerp(0, 1, 2 * (Global.t - 0.5))
@@ -160,11 +160,6 @@ function drawPlanet() {
   noStroke()
   fill(color)
   circle(0.5 * Global.xFactor, CLOUDS_TOP - 350 + distanceToCloud, 85)
-
-  // noFill()
-  // stroke(color);
-  // strokeWeight(3)
-  // circle(0.5 * Global.xFactor, CLOUDS_TOP - 350 + distanceToCloud, 85)
 }
 
 function drawClouds() {
